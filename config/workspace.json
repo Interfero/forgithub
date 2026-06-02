@@ -1,0 +1,35 @@
+{
+  "diskLimitGb": 10,
+  "warnAtPercent": 85,
+  "description": "Budget for repo checkout + local dev artifacts (not system-wide disk).",
+  "trackedPaths": [
+    { "id": "repo", "path": ".", "label": "Repository" },
+    { "id": "jarvis-venv", "path": "Jarvis_free/backend/venv", "label": "Jarvis Python venv", "optional": true },
+    { "id": "jarvis-node", "path": "Jarvis_free/frontend/node_modules", "label": "Jarvis frontend deps", "optional": true },
+    { "id": "jarvis-models", "path": "Jarvis_free/backend/data/models", "label": "Jarvis GGUF models", "optional": true },
+    { "id": "jarvis-user-data", "env": "LOCALAPPDATA", "suffix": "Jarvis_free/data", "label": "Jarvis user data", "optional": true },
+    { "id": "jarvis-browsers", "env": "LOCALAPPDATA", "suffix": "Jarvis/browsers", "label": "Playwright browsers (shared)", "optional": true }
+  ],
+  "heavyArtifacts": [
+    "**/node_modules",
+    "**/venv",
+    "**/*.gguf",
+    "**/*.gguf.part",
+    "**/dist",
+    "**/build",
+    "**/__pycache__"
+  ],
+  "profiles": {
+    "apiOnly": {
+      "label": "DeepSeek API only (fits 10 GB)",
+      "downloadQwen": false,
+      "notes": "No local GGUF. Needs backend/config/deepseek_free.key."
+    },
+    "localQwen3b": {
+      "label": "Local Qwen 3B (~2 GB model)",
+      "downloadQwen": true,
+      "modelHint": "Set JARVIS_QWEN_MODEL to 3B GGUF if you add a separate download script."
+    }
+  },
+  "defaultProfile": "apiOnly"
+}

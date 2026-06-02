@@ -36,8 +36,13 @@ out/
 .DS_Store
 Thumbs.db
 .idea/
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 *.swp
+
+# Local workspace overrides
+.local/
 
 # Archives and backups
 *.zip

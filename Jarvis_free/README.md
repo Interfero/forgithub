@@ -1,32 +1,48 @@
 ﻿# Jarvis Free
 
-Р‘РµСЃРїР»Р°С‚РЅР°СЏ СЂРµРґР°РєС†РёСЏ Jarvis: РІРµСЃСЊ С„СѓРЅРєС†РёРѕРЅР°Р» РІ РѕРґРЅРѕРј С‡Р°С‚Рµ, Р±РµР· СЌРєСЂР°РЅР°-Р°РІР°С‚Р°СЂР° Рё 2D-РёРіСЂС‹.
+Бесплатная редакция Jarvis: весь функционал в одном чате, без экрана-аватара и 2D-игры.
 
-> **РџСѓР±Р»РёС‡РЅС‹Р№ СЂРµРїРѕР·РёС‚РѕСЂРёР№.** РќРµ РєРѕРјРјРёС‚СЊС‚Рµ `.env`, РєР»СЋС‡Рё API, С‚РѕРєРµРЅС‹ Telegram/Avito Рё Р»РёС‡РЅС‹Рµ С‡Р°С‚С‹.
-> РџРµСЂРµРґ СЃР±РѕСЂРєРѕР№ EXE СЃРј. [SECURITY.md](../SECURITY.md) РІ РєРѕСЂРЅРµ СЂРµРїРѕР·РёС‚РѕСЂРёСЏ.
+> **Публичный репозиторий.** Не коммитьте `.env`, ключи API, токены Telegram/Avito и личные чаты.
+> Перед сборкой EXE см. [SECURITY.md](../SECURITY.md). Лимит диска **10 ГБ** — [DISK.md](../DISK.md).
 
-## РџРµСЂРІС‹Р№ Р·Р°РїСѓСЃРє
+## Быстрый старт (из корня forgithub)
 
-1. Python 3.11+ Рё Node.js РґР»СЏ С„СЂРѕРЅС‚Р°.
-2. РљР»СЋС‡ DeepSeek: СЃРєРѕРїРёСЂСѓР№С‚Рµ `backend/config/deepseek_free.key.example` в†’ `backend/config/deepseek_free.key` Рё РІСЃС‚Р°РІСЊС‚Рµ РєР»СЋС‡ (`sk-вЂ¦`).
-3. РЈСЃС‚Р°РЅРѕРІРёС‚Рµ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё backend Рё frontend (СЃРј. `backend/requirements.txt`, `frontend/package.json`).
-4. Р—Р°РїСѓСЃС‚РёС‚Рµ `start.bat` РёР»Рё `start.ps1`.
-5. РћС‚РєСЂРѕР№С‚Рµ http://127.0.0.1:8001/
+```powershell
+cd ..
+.\scripts\setup-workspace.ps1
+```
 
-## Р”Р°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+Или только Jarvis:
 
-Free С…СЂР°РЅРёС‚ С‡Р°С‚С‹ Рё РЅР°СЃС‚СЂРѕР№РєРё РІ `%LOCALAPPDATA%\Jarvis_free\data` (РЅРµ РІ git).
+```powershell
+.\scripts\setup-dev.ps1
+copy backend\config\deepseek_free.key.example backend\config\deepseek_free.key
+# вставьте ключ DeepSeek sk-…
+.\start.bat
+```
 
-РЁР°Р±Р»РѕРЅС‹: `backend/data/*.example` Рё `backend/data/*/config.example.json`.
+Откройте http://127.0.0.1:8001/
 
-## РњРѕРґРµР»Рё Qwen (~9 Р“Р‘)
+## Данные пользователя
 
-РќРµ РІРєР»СЋС‡РµРЅС‹ РІ git. РџРѕР»РѕР¶РёС‚Рµ GGUF РІ `backend/data/models/` РёР»Рё РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РѕР±С‰СѓСЋ РїР°РїРєСѓ Jarvis Pro (СЃРј. `backend/modules/app_paths.py`).
+Чаты и настройки: `%LOCALAPPDATA%\Jarvis_free\data` (не в git).
 
-## РЎР±РѕСЂРєР° EXE
+Шаблоны: `backend/data/*.example`, `backend/data/*/config.example.json`.
 
-РўРѕР»СЊРєРѕ РїРѕСЃР»Рµ `..\scripts\check-secrets.ps1`. РђСЂtefacts (`dist/`, `*.exe`) РЅРµ РїСѓР±Р»РёРєСѓСЋС‚СЃСЏ РІ GitHub.
+## Модели Qwen
 
-## РџРѕСЂС‚
+В git **нет** GGUF (~9 ГБ). При лимите **10 ГБ** рекомендуется **DeepSeek API** без локальной модели.
 
-Jarvis Free: **8001** (РїРѕР»РЅР°СЏ РІРµСЂСЃРёСЏ Pro РѕР±С‹С‡РЅРѕ **8000**).
+Если всё же нужен Qwen 14B (не влезает в 10 ГБ вместе с deps):
+
+```powershell
+.\scripts\install-qwen-safe.bat
+```
+
+## Сборка EXE
+
+После `..\scripts\check-secrets.ps1`. Артефакты (`dist/`, `*.exe`) не публикуются на GitHub.
+
+## Порт
+
+Jarvis Free: **8001** (Pro: **8000**).
