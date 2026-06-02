@@ -1,0 +1,5 @@
+#!/bin/sh
+# Блокирует коммит, если в staged-файлах найдены секреты.
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "scripts/check-secrets.ps1" -StagedOnly
+exit $?

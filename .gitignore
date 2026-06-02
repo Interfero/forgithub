@@ -1,7 +1,20 @@
-# Secrets
+# Secrets and credentials
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.kdbx
+credentials.json
+service-account*.json
+google-services.json
+secrets.json
+secrets.yaml
+secrets.yml
+*.secret
+*.credentials
 
 # Dependencies
 node_modules/
@@ -10,9 +23,13 @@ __pycache__/
 .venv/
 venv/
 
-# Build
+# Build / binaries (do not publish to GitHub)
 dist/
 build/
+out/
+*.exe
+*.msi
+*.dmg
 *.log
 
 # OS / IDE
@@ -22,7 +39,14 @@ Thumbs.db
 .vscode/
 *.swp
 
-# Archives (usually not for public repos)
+# Archives and backups
 *.zip
 *.rar
 *.7z
+*.bak
+*.backup
+
+# Local databases with possible secrets
+*.sqlite
+*.sqlite3
+*.db
