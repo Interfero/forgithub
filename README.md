@@ -1,60 +1,56 @@
 # forgithub
 
-Публичная рабочая папка для проектов на GitHub.
+Публичный монорепозиторий проектов на GitHub.
 
-**Репозиторий:** https://github.com/Interfero/forgithub
+**Ссылка:** https://github.com/Interfero/forgithub
 
-**Лимит диска для разработки: 10 ГБ** — см. [DISK.md](./DISK.md).
+## Структура
 
-## Один раз — настроить всё
+```
+forgithub/
+├── Jarvis_free/     # проекты (исходный код)
+├── docs/            # документация
+├── scripts/         # setup, безопасность, лимит диска
+├── config/          # настройки workspace (лимит 10 GB)
+├── .githooks/       # pre-commit проверка секретов
+└── README.md        # вы здесь
+```
+
+## Быстрый старт
 
 ```powershell
-cd C:\Users\420\Documents\develop\forgithub
+git clone https://github.com/Interfero/forgithub.git
+cd forgithub
 .\scripts\setup-workspace.ps1
 ```
 
-- pre-commit проверка секретов
-- отчёт по занятому месту
-- venv + npm для Jarvis Free (если установлены Python/Node)
-
 ## Проекты
 
-| Проект | Папка | Ссылка на GitHub |
-|--------|-------|------------------|
-| Jarvis Free | [Jarvis_free/](./Jarvis_free/) | [tree/main/Jarvis_free](https://github.com/Interfero/forgithub/tree/main/Jarvis_free) |
+| Проект | Папка |
+|--------|--------|
+| **Jarvis Free** | [Jarvis_free/](./Jarvis_free/) — порт `8001`, AI-ассистент |
 
-Полный список: [PROJECTS.md](./PROJECTS.md)
+Подробнее: [docs/PROJECTS.md](./docs/PROJECTS.md)
 
-## Полезные команды
+## Команды
 
 ```powershell
-.\scripts\disk-status.ps1          # сколько занято из 10 GB
+.\scripts\disk-status.ps1          # диск: лимит 10 GB
 .\scripts\cleanup-workspace.ps1    # очистка кэшей
-.\scripts\check-secrets.ps1        # проверка перед коммитом
-.\scripts\guard-disk.ps1           # блок перед тяжёлой загрузкой
-```
-
-## Перенос проекта из develop
-
-```powershell
-.\scripts\prepare-project-for-public.ps1 -SourcePath "C:\Users\420\Documents\develop\ИМЯ" -TargetName "ИМЯ"
-.\scripts\check-secrets.ps1 -Path "ИМЯ"
-git add .
-git commit -m "Add project"
-git push
+.\scripts\check-secrets.ps1        # перед коммитом
 ```
 
 ## Документация
 
-| Файл | Описание |
-|------|----------|
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Работа collaborators, первый запуск |
-| [DISK.md](./DISK.md) | Лимит 10 ГБ, профили, очистка |
-| [SECURITY.md](./SECURITY.md) | Секреты, EXE, что нельзя публиковать |
-| [ACCESS.md](./ACCESS.md) | Доступ к репозиторию |
+Вся документация — в папке **[docs/](./docs/)**:
+
+- [CONTRIBUTING.md](./docs/CONTRIBUTING.md) — как работать с репозиторием
+- [DISK.md](./docs/DISK.md) — лимит 10 ГБ
+- [SECURITY.md](./docs/SECURITY.md) — безопасность и секреты
+- [ACCESS.md](./docs/ACCESS.md) — доступ collaborators
 
 ## Правила
 
-- Только код, готовый к публичному показу.
-- Секреты — локально (`.env`, `*.key`), в git только `*.example`.
+- Публикуем только то, что готовы показать всем.
+- Секреты — локально; в git только `*.example`.
 - EXE и `dist/` не коммитим.

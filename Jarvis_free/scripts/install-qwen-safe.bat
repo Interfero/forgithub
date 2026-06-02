@@ -14,7 +14,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0..\..\scripts\guar
 if errorlevel 1 (
   echo.
   echo [СТОП] Qwen 14B не влезет в бюджет 10 GB.
-  echo См. DISK.md — профиль apiOnly или cleanup-workspace.ps1
+  echo См. docs\DISK.md — профиль apiOnly или cleanup-workspace.ps1
   pause
   exit /b 1
 )

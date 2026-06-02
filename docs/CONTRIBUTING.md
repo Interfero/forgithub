@@ -34,10 +34,10 @@ git push
 
 ## Jarvis Free
 
-- Код: [Jarvis_free/](./Jarvis_free/)
+- Код: [Jarvis_free/](../Jarvis_free/)
 - Запуск: `Jarvis_free\start.bat` → http://127.0.0.1:8001/
 - Ключ: `Jarvis_free\backend\config\deepseek_free.key` (не в git)
-- **Не** качайте Qwen 14B при лимите 10 ГБ — см. `Jarvis_free\install-qwen-safe.bat`
+- **Не** качайте Qwen 14B при лимите 10 ГБ — см. `Jarvis_free\scripts\install-qwen-safe.bat`
 
 ## Доступ collaborator
 

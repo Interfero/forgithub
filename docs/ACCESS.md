@@ -26,7 +26,7 @@ cd forgithub
 .\scripts\setup-security.ps1
 ```
 
-Перед первым коммитом — прочитать `SECURITY.md`.
+Перед первым коммитом — прочитать [SECURITY.md](./SECURITY.md).
 
 ## Роли
 
@@ -42,4 +42,4 @@ cd forgithub
 ## Важно
 
 - Публичный репозиторий виден всем; Write даёт право **менять код**, не скрывает его.
-- Collaborators тоже обязаны соблюдать `SECURITY.md` — не коммитить `.env` и ключи.
+- Collaborators тоже обязаны соблюдать [SECURITY.md](./SECURITY.md) — не коммитить `.env` и ключи.

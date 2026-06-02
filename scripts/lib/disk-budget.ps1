@@ -150,7 +150,7 @@ function Write-DiskBudgetReport {
 
     Write-Host ""
     Write-Host "Disk budget: $($Report.UsedHuman) / $($Report.LimitGb) GB ($($Report.UsedPercent)%) - $($Report.Status)" -ForegroundColor $(switch ($Report.Status) { "over" { "Red" } "warn" { "Yellow" } default { "Green" } })
-    Write-Host "Free: $($Report.FreeHuman) | Default profile: $($Report.DefaultProfile) (see DISK.md)"
+    Write-Host "Free: $($Report.FreeHuman) | Default profile: $($Report.DefaultProfile) (see docs/DISK.md)"
     Write-Host ""
     $Report.Rows | Format-Table Label, Human, Path -AutoSize
 }

@@ -21,7 +21,7 @@ Write-Host "Jarvis: $jarvisRoot"
 if (Test-Path $guard) {
     & $guard -RepoRoot $forgithubRoot -RequiredBytes 800000000
     if ($LASTEXITCODE -ne 0) {
-        throw "Not enough disk budget (~800 MB needed for venv+npm). Run cleanup or see DISK.md"
+        throw "Not enough disk budget (~800 MB needed for venv+npm). Run cleanup or see docs/DISK.md"
     }
 }
 

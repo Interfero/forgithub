@@ -105,7 +105,7 @@ if ($issues.Count -gt 0) {
     Write-Host "Issues found: $($issues.Count)" -ForegroundColor Red
     $issues | Select-Object -Unique | ForEach-Object { Write-Host "  - $_" -ForegroundColor Yellow }
     Write-Host ""
-    Write-Host "Fix issues before commit. See SECURITY.md" -ForegroundColor Red
+    Write-Host "Fix issues before commit. See docs/SECURITY.md" -ForegroundColor Red
     exit 1
 }
 
