@@ -1,0 +1,26 @@
+# Jarvis на VPS: docker compose up -d --build
+services:
+  jarvis:
+    build: .
+    image: jarvis:latest
+    container_name: jarvis
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      JARVIS_HOST: "0.0.0.0"
+      JARVIS_PORT: "8000"
+      JARVIS_DATA_DIR: "/app/backend/data"
+    volumes:
+      - jarvis-data:/app/backend/data
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 45s
+
+volumes:
+  jarvis-data:

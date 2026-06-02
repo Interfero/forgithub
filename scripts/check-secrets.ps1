@@ -21,7 +21,7 @@ $secretPatterns = @(
     @{ Name = "Private key block"; Pattern = "BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY" },
     @{
         Name = "Generic secret assignment"
-        Pattern = '(?i)(api[_-]?key|client[_-]?secret|access[_-]?token|password)\s*[:=]\s*["''](?!your_|insert|replace|example|changeme|xxx|TODO)[^"''\s]{8,}["'']'
+        Pattern = '(?i)\b(api[_-]?key|client[_-]?secret|access[_-]?token|password)\b\s*[:=]\s*["''](?!your_|insert|replace|example|changeme|xxx|TODO)[^"''\s]{8,}["'']'
     }
 )
 
@@ -33,10 +33,19 @@ function Get-ScanFiles {
         try {
             $staged = git diff --cached --name-only --diff-filter=ACMR 2>$null
             if (-not $staged) { return @() }
-            return $staged | ForEach-Object {
-                $full = Join-Path $ScanRoot $_
-                if (Test-Path $full -PathType Leaf) { Get-Item $full }
+            $items = @()
+            foreach ($rel in $staged) {
+                if ([string]::IsNullOrWhiteSpace($rel)) { continue }
+                $full = Join-Path $ScanRoot $rel
+                try {
+                    if (Test-Path -LiteralPath $full -PathType Leaf) {
+                        $items += Get-Item -LiteralPath $full
+                    }
+                } catch {
+                    Write-Warning "Skip unreadable staged path: $rel"
+                }
             }
+            return $items
         } finally {
             Pop-Location
         }

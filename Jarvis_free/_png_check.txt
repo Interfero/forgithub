@@ -1,0 +1,9 @@
+﻿python : Traceback (most recent call last):
+C:\Users\420\AppData\Local\Temp\ps-script-95392366-6367-4cca-903d-8edfdb8e43b1.ps1:101 знак:1
++ python -c "from PIL import Image; p=r'C:\\Users\\420\\Documents\\deve ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'PIL'

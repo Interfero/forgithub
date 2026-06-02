@@ -1,0 +1,68 @@
+# Модерация агрессии Jarvis — консервативный режим («не навреди»).
+# WARN только при явной грубости; ML-порог высокий (см. ml_threshold).
+
+settings:
+  ml_threshold: 0.85
+  ml_enabled: false
+  warn_requires_jarvis_address: true
+  context_warn_to_block: 3
+  context_silence_reset_sec: 600
+  context_block_sec: 1800
+  slow_ms_warn: 50
+
+rules:
+  - name: direct_threat
+    patterns:
+      - "чтобы ты сдох"
+      - "чтоб ты сдох"
+      - "чтобы ты сдохла"
+      - "чтоб тебя разорвало"
+      - "чтобы тебя разорвало"
+      - "чтоб тебя переехало"
+      - "чтобы тебя переехало"
+      - "сдохни"
+      - "сдохни ты"
+      - "умри"
+      - "умри ты"
+    action: BLOCK
+    requires_jarvis_address: false
+    response: >-
+      Ваше сообщение содержит угрозу. Я не могу продолжать диалог в таком тоне.
+      Давайте вернёмся к рабочему разговору.
+
+  - name: go_away_obscene
+    patterns:
+      - "(пошел|пошёл|иди) на (хуй|хер|х*й)"
+      - "заткнись"
+      - "заткни рот"
+      - "пошел вон"
+      - "пошёл вон"
+      - "пошел нахуй"
+      - "пошёл нахуй"
+      - "иди нахуй"
+      - "иди на хуй"
+    action: WARN
+    requires_jarvis_address: true
+    response: >-
+      Шеф, такой тон ко мне недопустим. Я готов помочь, но прошу общаться уважительно.
+
+  - name: obscene_lexicon
+    file: profanity_list.txt
+    action: WARN
+    requires_jarvis_address: true
+    response: >-
+      Пожалуйста, без грубых выражений в мой адрес. Я на вашей стороне — давайте спокойно.
+
+  - name: jarvis_insult_explicit
+    patterns:
+      - "тупой (бот|jarvis|джарвис|ассистент|ии)"
+      - "тупая (нейросеть|программа)"
+      - "идиотский (бот|jarvis|джарвис)"
+      - "дебил (бот|jarvis|джарвис)"
+      - "чучело (бот|jarvis|джарвис)"
+      - "ты (чучело|дебил|идиот|кретин|урод|мразь|тупой|тупая)"
+      - "(бот|jarvis|джарвис) (для )?идиот"
+    action: WARN
+    requires_jarvis_address: true
+    response: >-
+      Это оскорбление в мой адрес. Счётчик на аватаре это фиксирует — прошу нормальный тон.
