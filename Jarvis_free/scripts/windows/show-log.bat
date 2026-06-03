@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 if not exist "logs\server.log" (
   echo Log poka pust. Zapustite serve.bat
   pause

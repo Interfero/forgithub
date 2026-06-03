@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 title Jarvis — загрузка Qwen 2.5 14B в приложение
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 
 echo ========================================
 echo   Qwen 2.5 14B — ВНУТРЬ приложения Jarvis

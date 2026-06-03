@@ -1,4 +1,3 @@
-# Запуск без окон консоли: .\start.ps1
 Set-Location $PSScriptRoot
-& wscript.exe //nologo (Join-Path $PSScriptRoot 'run-start.vbs')
+& wscript.exe //nologo (Join-Path $PSScriptRoot 'scripts\launch\run-start.vbs')
 exit $LASTEXITCODE

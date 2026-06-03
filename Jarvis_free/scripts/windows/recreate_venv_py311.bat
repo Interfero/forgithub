@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 echo Пересоздание backend\venv с Python 3.11 (для XTTS-v2)...
 echo.
 

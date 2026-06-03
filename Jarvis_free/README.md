@@ -1,48 +1,36 @@
 ﻿# Jarvis Free
 
-Бесплатная редакция Jarvis: весь функционал в одном чате, без экрана-аватара и 2D-игры.
+Бесплатная редакция Jarvis. Публичная копия в репозитории [forgithub](https://github.com/Interfero/forgithub).
 
-> **Публичный репозиторий.** Не коммитьте `.env`, ключи API, токены Telegram/Avito и личные чаты.
-> Перед сборкой EXE см. [SECURITY.md](../docs/SECURITY.md). Лимит диска **10 ГБ** — [DISK.md](../docs/DISK.md).
+> Не коммитьте ключи API и личные чаты. См. [SECURITY.md](../docs/SECURITY.md) и [DISK.md](../docs/DISK.md).
 
-## Быстрый старт (из корня forgithub)
+## Структура (внутри Jarvis_free)
 
-```powershell
-cd ..
-.\scripts\setup-workspace.ps1
+```
+Jarvis_free/
+├── README.md, .gitignore, Dockerfile, docker-compose.yml
+├── start.bat, restart.bat, start-dev.bat   ← запуск
+├── backend/
+├── frontend/
+├── scripts/launch/      ← VBS
+├── scripts/windows/     ← install-*, serve, …
+├── packaging/           ← build-exe.bat
+├── assets/images/
+├── docs/
+└── var/                 ← временные файлы (не в git)
 ```
 
-Или только Jarvis:
+## Запуск
 
-```powershell
-.\scripts\setup-dev.ps1
-copy backend\config\deepseek_free.key.example backend\config\deepseek_free.key
-# вставьте ключ DeepSeek sk-…
-.\start.bat
-```
+1. Ключ: `backend\config\deepseek_free.key.example` → `deepseek_free.key`
+2. `start.bat` → http://127.0.0.1:8001/
 
-Откройте http://127.0.0.1:8001/
+## Утилиты
 
-## Данные пользователя
+| Задача | Путь |
+|--------|------|
+| Qwen 14B (проверка 10 GB) | `scripts\windows\install-qwen-safe.bat` |
+| Сборка EXE | `packaging\build-exe.bat` |
+| Dev-режим | `start-dev.bat` |
 
-Чаты и настройки: `%LOCALAPPDATA%\Jarvis_free\data` (не в git).
-
-Шаблоны: `backend/data/*.example`, `backend/data/*/config.example.json`.
-
-## Модели Qwen
-
-В git **нет** GGUF (~9 ГБ). При лимите **10 ГБ** рекомендуется **DeepSeek API** без локальной модели.
-
-Если всё же нужен Qwen 14B (не влезает в 10 ГБ вместе с deps):
-
-```powershell
-.\scripts\install-qwen-safe.bat
-```
-
-## Сборка EXE
-
-После `..\scripts\check-secrets.ps1`. Артефакты (`dist/`, `*.exe`) не публикуются на GitHub.
-
-## Порт
-
-Jarvis Free: **8001** (Pro: **8000**).
+Данные пользователя: `%LOCALAPPDATA%\Jarvis_free\data`

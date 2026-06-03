@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 title Jarvis — встроенный Chromium (Playwright)
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 
 echo ========================================
 echo   Встроенный браузер Jarvis (Chromium)

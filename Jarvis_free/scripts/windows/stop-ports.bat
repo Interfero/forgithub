@@ -1,5 +1,5 @@
 @echo off
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 if exist "logs\server.pid" (
   for /f %%p in (logs\server.pid) do taskkill /F /PID %%p >nul 2>&1
   del /f /q "logs\server.pid" >nul 2>&1

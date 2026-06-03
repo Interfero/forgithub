@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { PNG } from 'pngjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
-const input = path.join(root, 'jarvis.png')
+const input = path.join(root, 'assets/images/jarvis.png')
 
 function isCheckerPixel(r, g, b, a) {
   if (a < 16) return true

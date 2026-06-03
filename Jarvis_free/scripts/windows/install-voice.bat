@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 title Jarvis — голос XTTS в приложение
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 
 echo ========================================
 echo   XTTS-v2 — внутри Jarvis

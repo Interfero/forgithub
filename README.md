@@ -7,13 +7,20 @@
 ## Структура
 
 ```
-forgithub/
-├── Jarvis_free/     # проекты (исходный код)
-├── docs/            # документация
-├── scripts/         # setup, безопасность, лимит диска
-├── config/          # настройки workspace (лимит 10 GB)
-├── .githooks/       # pre-commit проверка секретов
-└── README.md        # вы здесь
+forgithub/                    ← корень репозитория (документация, скрипты)
+├── README.md
+├── docs/
+├── scripts/
+├── config/
+├── .githooks/
+└── Jarvis_free/              ← проект Jarvis (всё приложение внутри)
+    ├── start.bat             ← запуск
+    ├── backend/
+    ├── frontend/
+    ├── scripts/launch/
+    ├── scripts/windows/
+    ├── packaging/
+    └── ...
 ```
 
 ## Быстрый старт

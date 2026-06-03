@@ -5,7 +5,7 @@
 from pathlib import Path
 
 block_cipher = None
-root = Path(SPECPATH)
+root = Path(SPECPATH).parent
 backend = root / "backend"
 frontend_dist = root / "frontend" / "dist"
 memory_src = backend / "data" / "memory"

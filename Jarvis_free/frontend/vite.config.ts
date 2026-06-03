@@ -17,7 +17,7 @@ export default defineConfig(() => {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@jarvis-base': path.resolve(__dirname, '../../jarvis/jarvis.png'),
+      '@jarvis-base': path.resolve(__dirname, '../assets/images/jarvis.png'),
       ...(includeDevPanel
         ? {}
         : {

@@ -1,6 +1,5 @@
 @echo off
-REM Первый/полный запуск без окон консоли. Логи: logs\start.log
-REM Режим с окнами (разработка): start-dev.bat
+REM Запуск Jarvis Free (без окон консоли). Логи: logs\start.log
 cd /d "%~dp0"
-wscript //nologo "%~dp0run-start.vbs"
+wscript //nologo "%~dp0scripts\launch\run-start.vbs"
 exit /b %ERRORLEVEL%

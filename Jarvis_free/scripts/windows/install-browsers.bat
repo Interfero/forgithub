@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 title Jarvis — браузеры внутри приложения
-cd /d "%~dp0"
+call "%~dp0_root.bat"
 
 echo ========================================
 echo   Браузеры Jarvis (внутри приложения)
