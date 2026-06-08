@@ -17,6 +17,7 @@ $excludeFiles = @(
     "settings.json", "chats.json", "server_runtime.json", "jarvis_free_updates.json",
     "accountant.db", "jarvis.db", "inbox.db",
     "deepseek_free.key", "user_base.ogg", "xtts_state.json",
+    "ollama_reg.txt", "qwen_now.json", "qwen_status.txt", "_png_check.txt",
     ".env", ".env.local", ".env.production"
 )
 
@@ -157,70 +158,13 @@ Download Qwen models separately or reuse models from a local Jarvis Pro install:
     Set-Content -LiteralPath $full -Value $_.Content -Encoding UTF8
 }
 
-$publicReadme = @'
-# Jarvis Free
+$repoRoot = Split-Path $PSScriptRoot -Parent
+Write-Host "Reorganizing public layout..." -ForegroundColor Cyan
+& (Join-Path $repoRoot "scripts\reorganize-jarvis-layout.ps1") -ProjectRoot $TargetPath
+& (Join-Path $repoRoot "scripts\finalize-jarvis-public-layout.ps1") -ProjectRoot $TargetPath
 
-Бесплатная редакция Jarvis: весь функционал в одном чате, без экрана-аватара и 2D-игры.
-
-> **Публичный репозиторий.** Не коммитьте `.env`, ключи API, токены Telegram/Avito и личные чаты.
-> Перед сборкой EXE см. [SECURITY.md](../docs/SECURITY.md) в корне репозитория.
-
-## Первый запуск
-
-1. Python 3.11+ и Node.js для фронта.
-2. Ключ DeepSeek: скопируйте `backend/config/deepseek_free.key.example` → `backend/config/deepseek_free.key` и вставьте ключ (`sk-…`).
-3. Установите зависимости backend и frontend (см. `backend/requirements.txt`, `frontend/package.json`).
-4. Запустите `start.bat` или `start.ps1`.
-5. Откройте http://127.0.0.1:8001/
-
-## Данные пользователя
-
-Free хранит чаты и настройки в `%LOCALAPPDATA%\Jarvis_free\data` (не в git).
-
-Шаблоны: `backend/data/*.example` и `backend/data/*/config.example.json`.
-
-## Модели Qwen (~9 ГБ)
-
-Не включены в git. Положите GGUF в `backend/data/models/` или используйте общую папку Jarvis Pro (см. `backend/modules/app_paths.py`).
-
-## Сборка EXE
-
-Только после `..\scripts\check-secrets.ps1`. Арtefacts (`dist/`, `*.exe`) не публикуются в GitHub.
-
-## Порт
-
-Jarvis Free: **8001** (полная версия Pro обычно **8000**).
-'@
-
-Set-Content -LiteralPath (Join-Path $TargetPath "README.md") -Value $publicReadme -Encoding UTF8
-
-$jarvisGitignore = @'
-backend/venv/
-backend/config/deepseek_free.key
-backend/data/deepseek_free.key
-backend/data/settings.json
-backend/data/chats.json
-backend/data/server_runtime.json
-backend/data/*.db
-backend/data/models/*.gguf
-backend/data/models/*.bin
-backend/data/telegram/config.json
-backend/data/avito/config.json
-backend/data/telegram_analyst/
-backend/data/uploads/
-backend/data/generated/
-backend/data/_tmp_*/
-backend/data/memory/conscious/Память_сессий.md
-frontend/node_modules/
-frontend/dist/
-logs/
-__pycache__/
-*.pyc
-.env
-.env.*
-!.env.example
-'@
-
-Set-Content -LiteralPath (Join-Path $TargetPath ".gitignore") -Value $jarvisGitignore -Encoding UTF8
-
+Write-Host ""
 Write-Host "Done: $TargetPath" -ForegroundColor Green
+Write-Host "Next:" -ForegroundColor Cyan
+Write-Host "  .\scripts\check-secrets.ps1 -Path Jarvis_free"
+Write-Host "  git add Jarvis_free; git commit; git push"
