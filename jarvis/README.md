@@ -43,7 +43,7 @@
    git clone https://github.com/Interfero/forgithub.git
    cd forgithub/jarvis
    ```
-2. Установите зависимости и запустите — пошагово в [ЗАПУСК.txt](ЗАПУСК.txt).
+2. Установите зависимости и запустите — пошагово в [START.ru.txt](START.ru.txt).
 
 ### Готовая сборка (релиз)
 
@@ -61,7 +61,7 @@
 jarvis/
 ├── backend/          # Сервер, API, логика ассистента
 ├── frontend/         # Веб-интерфейс (React)
-├── ЗАПУСК.txt        # Инструкция по запуску (RU)
+├── START.ru.txt      # Инструкция по запуску (RU)
 ├── CHANGELOG.md      # История версий
 └── README_EDITIONS.md # Личное и Business-издание
 ```

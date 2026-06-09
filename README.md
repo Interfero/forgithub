@@ -33,7 +33,7 @@ cd jarvis
 
 Откройте http://127.0.0.1:8000/ после запуска.
 
-Подробнее: [jarvis/ЗАПУСК.txt](./jarvis/ЗАПУСК.txt)
+Подробнее: [jarvis/START.ru.txt](./jarvis/START.ru.txt)
 
 ## Проекты
 
