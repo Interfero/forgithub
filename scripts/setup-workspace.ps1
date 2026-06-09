@@ -17,19 +17,10 @@ if (-not $SkipSecurity) {
 
 & (Join-Path $PSScriptRoot "disk-status.ps1") -RepoRoot $root
 
-if (-not $SkipJarvisDeps) {
-    $jarvisSetup = Join-Path $root "Jarvis_free\scripts\setup-dev.ps1"
-    if (Test-Path $jarvisSetup) {
-        Write-Host ""
-        Write-Host "=== Jarvis Free dev setup ===" -ForegroundColor Cyan
-        & $jarvisSetup -RepoRoot $root
-    }
-}
-
 Write-Host ""
 Write-Host "Ready. Next:" -ForegroundColor Green
-Write-Host "  cd Jarvis_free"
-Write-Host "  copy backend\config\deepseek_free.key.example backend\config\deepseek_free.key"
-Write-Host "  .\start.bat"
+Write-Host "  cd jarvis"
+Write-Host "  .\start.bat          # first run: installs deps, builds UI, opens browser"
+Write-Host "  .\start-quick.bat    # daily use"
 Write-Host ""
 Write-Host "Disk limit: 10 GB — see docs/DISK.md before install-qwen.bat (14B ~9 GB)."

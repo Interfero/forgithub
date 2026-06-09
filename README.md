@@ -13,13 +13,11 @@ forgithub/                    ← корень репозитория (доку�
 ├── scripts/
 ├── config/
 ├── .githooks/
-└── Jarvis_free/              ← проект Jarvis (всё приложение внутри)
-    ├── start.bat             ← запуск
+└── jarvis/                   ← Jarvis v1 — AI-ассистент для Windows
+    ├── start.bat             ← первый запуск / установка
+    ├── start-quick.bat       ← ежедневный запуск
     ├── backend/
     ├── frontend/
-    ├── scripts/launch/
-    ├── scripts/windows/
-    ├── packaging/
     └── ...
 ```
 
@@ -29,13 +27,19 @@ forgithub/                    ← корень репозитория (доку�
 git clone https://github.com/Interfero/forgithub.git
 cd forgithub
 .\scripts\setup-workspace.ps1
+cd jarvis
+.\start.bat
 ```
+
+Откройте http://127.0.0.1:8000/ после запуска.
+
+Подробнее: [jarvis/ЗАПУСК.txt](./jarvis/ЗАПУСК.txt)
 
 ## Проекты
 
 | Проект | Папка |
 |--------|--------|
-| **Jarvis Free** | [Jarvis_free/](./Jarvis_free/) — порт `8001`, AI-ассистент |
+| **Jarvis v1** | [jarvis/](./jarvis/) — порт `8000`, голосовой AI-ассистент |
 
 Подробнее: [docs/PROJECTS.md](./docs/PROJECTS.md)
 

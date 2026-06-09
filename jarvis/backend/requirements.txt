@@ -1,0 +1,45 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+aiofiles>=24.1.0
+python-dotenv>=1.0.1
+pyyaml>=6.0.2
+cachetools>=5.5.0
+httpx>=0.28.0
+socksio>=1.0.0
+edge-tts>=6.1.0
+num2words>=0.5.13
+# Silero TTS (локально): install-chat-voice.bat или кнопка в настройках
+# torch — ставится при установке Silero (CPU wheel)
+faster-whisper>=1.1.0
+imageio-ffmpeg>=0.5.0
+# GigaAM-v3 STT (русская речь): install-chat-voice.bat или вручную:
+# pip install hydra-core omegaconf
+# pip install --force-reinstall --no-deps git+https://github.com/salute-developers/GigaAM.git
+psutil>=6.0.0
+watchdog>=6.0.0
+openpyxl>=3.1.0
+python-docx>=1.1.0
+pypdf>=5.0.0
+pymupdf>=1.24.0
+pillow>=10.0.0
+pandas>=2.2.0
+markitdown[pdf,docx,pptx,xlsx]>=0.1.0
+# Голос XTTS (кнопка «Докачать библиотеки» или вручную):
+# TTS>=0.22.0
+# torch
+# torchaudio
+# Будущие зависимости (раскомментировать при подключении реальных модулей):
+# openai>=1.55.0
+# anthropic>=0.39.0
+# chromadb>=0.5.23
+duckduckgo-search>=7.0.0
+# Встроенный headless Chromium (install-chromium.bat):
+playwright>=1.49.0
+telethon>=1.38.0
+# Qwen 2.5 3B внутри Jarvis (GGUF + llama-cpp). На Windows start.bat ставит CPU-колесо:
+# pip install llama-cpp-python --prefer-binary --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+llama-cpp-python>=0.3.0
+huggingface_hub>=0.27.0

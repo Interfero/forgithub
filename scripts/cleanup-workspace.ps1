@@ -32,8 +32,8 @@ Write-Host "Cleanup workspace under $root" -ForegroundColor Cyan
 if ($DryRun) { Write-Host "(dry run — nothing deleted)" -ForegroundColor DarkGray }
 
 $patterns = @(
-    @{ Path = Join-Path $root "Jarvis_free\frontend\dist"; Label = "Jarvis frontend dist" },
-    @{ Path = Join-Path $root "Jarvis_free\backend\data\models\*.gguf.part"; Label = "partial GGUF downloads"; Glob = $true }
+    @{ Path = Join-Path $root "jarvis\frontend\dist"; Label = "Jarvis frontend dist" },
+    @{ Path = Join-Path $root "jarvis\backend\data\models\*.gguf.part"; Label = "partial GGUF downloads"; Glob = $true }
 )
 
 foreach ($p in $patterns) {
@@ -52,8 +52,8 @@ Get-ChildItem -Path $root -Recurse -Directory -Filter ".pytest_cache" -Force -Er
     ForEach-Object { Remove-TreeSafe -Path $_.FullName -Label ".pytest_cache" }
 
 if ($Deep) {
-    Remove-TreeSafe -Path (Join-Path $root "Jarvis_free\frontend\node_modules") -Label "Jarvis node_modules"
-    Remove-TreeSafe -Path (Join-Path $root "Jarvis_free\backend\venv") -Label "Jarvis venv"
+    Remove-TreeSafe -Path (Join-Path $root "jarvis\frontend\node_modules") -Label "Jarvis node_modules"
+    Remove-TreeSafe -Path (Join-Path $root "jarvis\backend\venv") -Label "Jarvis venv"
 }
 
 Write-Host ""

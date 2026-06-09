@@ -1,0 +1,22 @@
+# Встроенный оконный браузер Jarvis (Chrome)
+
+Инструменты browser_window_* управляют **видимым** Chrome Jarvis (не headless fetch_url).
+
+- **Перед каждым новым запуском** Chrome Jarvis автоматически очищает **дисковый кеш** профиля (Cache, Code Cache, Service Worker и т.д.). Cookies и Local Storage **сохраняются** — сессия Telegram не сбрасывается.
+- browser_window_open — открыть URL (при новом запуске кеш уже очищен).
+- browser_window_clear_cache — вручную очистить кеш профиля, если браузер **закрыт** (browser_window_close).
+- browser_window_reload — обновить страницу.
+- browser_window_close — закрыть окно.
+- browser_window_snapshot — прочитать URL, кнопки, есть ли вход.
+- browser_window_click — text (подпись кнопки) или selector (CSS).
+- browser_window_type — selector + text для полей ввода.
+
+Telegram Web K (двойник): тумблер «Двойник» или tg_web_twin_toggle — при каждом открытии окна кеш тоже очищается.
+Порядок входа: метод «по номеру телефона» → страна Россия → номер в чате.
+Если #page-chats виден — пользователь уже авторизован.
+
+Селекторы Telegram Web K:
+- Страна: .input-field.input-select .input-field-input
+- Телефон: .input-field.input-field-phone .input-field-input
+- Россия в списке: li:has(span[data-default-name="Russian Federation"])
+- Далее: button.btn-primary с текстом «Далее»

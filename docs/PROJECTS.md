@@ -2,6 +2,6 @@
 
 | Folder | Description | Port |
 |--------|-------------|------|
-| [Jarvis_free](../Jarvis_free/) | Jarvis Free — AI assistant (public edition) | 8001 |
+| [jarvis](../jarvis/) | Jarvis v1 — AI assistant for Windows | 8000 |
 
 Add new rows when publishing more projects from `develop`.

@@ -1,0 +1,82 @@
+# Стереотипы Jarvis — сайты, куда обращаться в первую очередь при поиске в интернете.
+# Формат: ключевые слова через запятую | Название | URL
+# В URL можно писать {query} — подставится уточнённый поисковый запрос.
+
+# --- Общие и новости ---
+новости, новость, сегодня, lenta, события | Lenta.ru | https://lenta.ru/search/v2/process?query={query}&type=1&sort=2
+что такое, определение, википедия, wiki, энциклопедия | Wikipedia RU | https://ru.wikipedia.org/w/index.php?search={query}&title=Special:Search
+habr, программирование, разработка, it, код, dev | Habr | https://habr.com/ru/search/?q={query}&target_type=posts
+python, javascript, stackoverflow, ошибка, bug | Stack Overflow | https://stackoverflow.com/search?q={query}
+github, репозиторий, open source, library | GitHub | https://github.com/search?q={query}&type=repositories
+
+# --- Энциклопедии и справочники ---
+энциклопедия, справочник, britannica, британика | Britannica | https://www.britannica.com/search?query={query}
+кругосвет, krugosvet, энциклопедия | Кругосвет | https://www.krugosvet.ru/encyclopedia/search/?q={query}
+znanium, знаниум, учебник, монография | Znanium | https://znanium.com/catalog/search?search={query}
+megabook, мегабук, справочник | Megabook | https://megabook.ru/search/?q={query}
+rubricon, рубрикон, словарь | Rubricon | https://www.rubricon.com/search/?q={query}
+
+# --- Академические базы ---
+jstor, научная статья, academic | JSTOR | https://www.jstor.org/action/doBasicSearch?Query={query}
+muse, jhu, гуманитарные науки | Project MUSE | https://muse.jhu.edu/search?q={query}
+cyberleninka, киберленинка, диссертация, научная | CyberLeninka | https://cyberleninka.ru/search?q={query}
+
+# --- Центробанки и финансовые регуляторы ---
+курс, валюта, доллар, евро, рубль, цб, exchange, ставка | ЦБ РФ | https://www.cbr.ru/key-indicators/
+cbr, центробанк, россия финансы | ЦБ РФ (сайт) | https://www.cbr.ru
+ecb, ецб, евро зона, европа валюта | ECB | https://www.ecb.europa.eu/home/search/html/index.en.html?q={query}
+fed, federal reserve, фрс, доллар сша | Federal Reserve | https://www.federalreserve.gov/search/default.aspx?q={query}
+
+# --- Международные финансовые организации ---
+imf, мвф, международный валютный | IMF | https://www.imf.org/en/Search?q={query}
+world bank, вс, мировой банк | World Bank | https://www.worldbank.org/en/search?q={query}
+oecd, оэср, экономика стран | OECD | https://www.oecd.org/search/?q={query}
+bis, бис, банк международных расчетов | BIS | https://www.bis.org/search/index.htm?globalquery={query}
+
+# --- Фактчекинг и специализированные организации ---
+фактчек, фейк, дезинформация, gfcn | GFCN | https://gfcn.ru
+who, всо, здравоохранение, медицина, эпидемия | WHO | https://www.who.int/search?query={query}
+
+# --- Политика и общество (Telegram, рейтинг ПУЛ) ---
+telegram, тг, pul, политика, канал | ПУЛ N3 | https://t.me/pulN3
+telegram, ran_she, политика | РАН | https://t.me/ran_she
+telegram, kraken, политика | Kraken Keep | https://t.me/kraken_keep
+telegram, bponline, политика | BP Online | https://t.me/bponlineofficial
+telegram, kstati, новости | Кстати | https://t.me/kstati
+telegram, obrazbud, общество | Образ будущего | https://t.me/obrazbud
+telegram, канцелярия, политика | Тайная канцелярия | https://t.me/tajnayakancelariya
+telegram, putin, политика | Putin Telegram | https://t.me/putin_telegram
+telegram, transfer, политика | Transfer | https://t.me/transfer_na_vstrechu
+telegram, druid, политика | Druid RU | https://t.me/druid_ru
+
+# --- Авторские и журналистские каналы ---
+telegram, simonyan, симоньян, rt | Маргарита Симоньян | https://t.me/margsimonyan
+telegram, sosnowski, сосновский, политолог | Александр Сосновский | https://t.me/dr_alex_sosnowski
+telegram, zergulio, аналитика | ZERGULIO | https://t.me/zergulio
+
+# --- Крупные СМИ и информационные агентства (Telegram) ---
+telegram, rt, russia today, новости | RT Russian | https://t.me/rt_russian
+telegram, ria, риа, новости | РИА Новости | https://t.me/rian_ru
+telegram, mash, новости, срочно | Mash | https://t.me/mash
+telegram, shot, новости | SHOT | https://t.me/shot_shot
+telegram, vedomosti, ведомости, бизнес | Ведомости | https://t.me/vedomosti
+telegram, aif, аргументы и факты | АиФ | https://t.me/aif_ru
+
+# --- Юмор, технологии и тематические каналы ---
+telegram, memach, юмор, мем | МЕМАЧ | https://t.me/memach
+telegram, mdk, юмор | MDK | https://t.me/mdk
+telegram, pikabu, пикабу, развлечения | Пикабу | https://t.me/piykabu
+telegram, yaplakal, яплакал | Yaplakal | https://t.me/yaplakal
+telegram, cis news, снг, foxnewsrf | CIS News | https://t.me/foxnewsrf
+
+# --- Игры (PC, Steam, сообщество) ---
+игра, игры, steam, стим, steampowered, store.steampowered, пк игра, video game, геймер, game | Steam Store | https://store.steampowered.com/search/?term={query}
+steam, steampowered, store, магазин steam, valve | Steam (главная) | https://store.steampowered.com/
+steam, игры, обзор, новинки, скидки, распродажа | Steam — специальные предложения | https://store.steampowered.com/specials/
+steam community, гайд, guide, форум игры, обсуждение | Steam Community | https://steamcommunity.com/search/groups/?text={query}
+helldivers, helldivers 2, хелдайверс, хелдайвер, helldiver, bile titan, желчный титан | Helldivers 2 (Steam) | https://store.steampowered.com/app/553850/
+helldivers, helldivers 2, хелдайверс, bile titan | Helldivers 2 — Steam Community | https://steamcommunity.com/app/553850/guides/
+игра, pc gaming, metacritic, обзор игры, рейтинг игры | Metacritic Games | https://www.metacritic.com/search/game?q={query}
+игра, wiki, вики, fandom, гайд по игре | Fandom Wiki | https://www.fandom.com/?s={query}
+игра, ign, обзор, walkthrough | IGN | https://www.ign.com/search?q={query}
+игра, pc, system requirements, системные требования | PCGamingWiki | https://www.pcgamingwiki.com/w/index.php?search={query}

@@ -4,11 +4,11 @@
   "description": "Budget for repo checkout + local dev artifacts (not system-wide disk).",
   "trackedPaths": [
     { "id": "repo", "path": ".", "label": "Repository" },
-    { "id": "jarvis-venv", "path": "Jarvis_free/backend/venv", "label": "Jarvis Python venv", "optional": true },
-    { "id": "jarvis-node", "path": "Jarvis_free/frontend/node_modules", "label": "Jarvis frontend deps", "optional": true },
-    { "id": "jarvis-models", "path": "Jarvis_free/backend/data/models", "label": "Jarvis GGUF models", "optional": true },
-    { "id": "jarvis-user-data", "env": "LOCALAPPDATA", "suffix": "Jarvis_free/data", "label": "Jarvis user data", "optional": true },
-    { "id": "jarvis-browsers", "env": "LOCALAPPDATA", "suffix": "Jarvis/browsers", "label": "Playwright browsers (shared)", "optional": true }
+    { "id": "jarvis-venv", "path": "jarvis/backend/venv", "label": "Jarvis Python venv", "optional": true },
+    { "id": "jarvis-node", "path": "jarvis/frontend/node_modules", "label": "Jarvis frontend deps", "optional": true },
+    { "id": "jarvis-models", "path": "jarvis/backend/data/models", "label": "Jarvis GGUF models", "optional": true },
+    { "id": "jarvis-user-data", "env": "LOCALAPPDATA", "suffix": "Jarvis/data", "label": "Jarvis user data", "optional": true },
+    { "id": "jarvis-browsers", "env": "LOCALAPPDATA", "suffix": "Jarvis/browsers", "label": "Playwright browsers", "optional": true }
   ],
   "heavyArtifacts": [
     "**/node_modules",
@@ -23,7 +23,7 @@
     "apiOnly": {
       "label": "DeepSeek API only (fits 10 GB)",
       "downloadQwen": false,
-      "notes": "No local GGUF. Needs backend/config/deepseek_free.key."
+      "notes": "No local GGUF. Add sk-… key in Jarvis Settings."
     },
     "localQwen3b": {
       "label": "Local Qwen 3B (~2 GB model)",

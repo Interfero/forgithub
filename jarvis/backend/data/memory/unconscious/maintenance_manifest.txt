@@ -1,0 +1,10 @@
+# Плановые проверки Jarvis (каждые 30 мин, сообщение в чат)
+# builtin:health_report — полный отчёт «Проверка систем»
+# builtin:chromium_status — встроенный Chromium
+# skill:имя — метод CustomSkills (jarvis_skills.py)
+# script:файл.py — data/maintenance/scripts/ (нужны run() и аудит)
+
+builtin:health_report
+builtin:chromium_status
+skill:ping_skills
+script:chromium_ping.py

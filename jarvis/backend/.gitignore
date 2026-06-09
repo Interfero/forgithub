@@ -1,0 +1,15 @@
+venv/
+data/*
+!data/memory/
+data/memory/*
+!data/memory/unconscious/
+!data/memory/unconscious/*.txt
+!data/memory/modes/
+data/memory/modes/*
+!data/memory/modes/marketer/
+!data/memory/modes/marketer/*.txt
+__pycache__/
+*.pyc
+.env
+config/*.key
+*.db

@@ -8,19 +8,31 @@
 git clone https://github.com/Interfero/forgithub.git
 cd forgithub
 .\scripts\setup-workspace.ps1
+cd jarvis
+.\start.bat
 ```
 
 Это включает:
 
 - pre-commit проверку секретов (`setup-security.ps1`)
 - отчёт по диску (лимит **10 ГБ**, см. [DISK.md](./DISK.md))
-- установку зависимостей Jarvis Free (Python venv + npm), если есть Node/Python
+- установку зависимостей Jarvis (Python venv + npm) при первом `start.bat`
 
 ## Перед каждым коммитом
 
 1. Не коммитьте `.env`, ключи, чаты, `.db` с личными данными.
 2. Pre-commit запустит `check-secrets.ps1` автоматически.
 3. Вручную: `.\scripts\check-secrets.ps1`
+
+## Обновить Jarvis из develop
+
+```powershell
+.\scripts\prepare-jarvis-for-public.ps1 -SourcePath "C:\Users\420\Documents\develop\jarvis"
+.\scripts\check-secrets.ps1 -Path jarvis
+git add jarvis
+git commit -m "Update Jarvis v1"
+git push
+```
 
 ## Добавить новый проект из develop
 
@@ -32,12 +44,12 @@ git commit -m "Add ProjectName"
 git push
 ```
 
-## Jarvis Free
+## Jarvis v1
 
-- Код: [Jarvis_free/](../Jarvis_free/)
-- Запуск: `Jarvis_free\start.bat` → http://127.0.0.1:8001/
-- Ключ: `Jarvis_free\backend\config\deepseek_free.key` (не в git)
-- **Не** качайте Qwen 14B при лимите 10 ГБ — см. `Jarvis_free\scripts\install-qwen-safe.bat`
+- Код: [jarvis/](../jarvis/)
+- Запуск: `jarvis\start.bat` → http://127.0.0.1:8000/
+- Ключи: Настройки в UI или `jarvis\backend\data\settings.json` (не в git)
+- **Не** качайте Qwen 14B при лимите 10 ГБ — см. `jarvis\install-qwen.bat` и [DISK.md](./DISK.md)
 
 ## Доступ collaborator
 

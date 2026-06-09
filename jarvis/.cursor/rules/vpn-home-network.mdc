@@ -1,0 +1,32 @@
+---
+description: Домашняя VPN-сеть 421 + Archer A54 + VPS Франция — архитектура и восстановление
+alwaysApply: true
+---
+
+# Домашняя VPN-сеть (421 + Archer + Франция)
+
+Полная документация: `C:\Users\420\Documents\develop\vpn\NETWORK-ARCHITECTURE.md`
+
+## Архитектура
+
+- **421** (Debian, Tailscale `100.126.84.68`) — VPN-шлюз 24/7
+- **wlo1** — домашний Wi‑Fi DOM.RU, интернет самого 421
+- **enp3s0** `192.168.50.1` — WAN Archer (синий порт), DHCP dnsmasq
+- **Archer A54** WAN `192.168.50.21`, Wi‑Fi `TP-Link_2092` / `65189375`
+- **tun0** → VPS `82.40.49.176` (OpenConnect, user `vpn`)
+- Телефоны в Archer → IP Париж; 421 сам → домашний IP
+
+## SSH 421
+
+`plink -ssh root@100.126.84.68 -batch -hostkey "SHA256:JgCcIcAueNNfSgVqtCGh9pg3Ax4ZEdXj+QOXR23kBvE" -i C:\Users\420\Documents\.ssh\for421.ppk`
+
+## Типичная поломка Archer без интернета
+
+Таблица `vpn` пустая. Проверка: `ip route show table vpn`. Починка: `/usr/local/sbin/vpn-gateway-up.sh tun0`. Не ломать default route на `wlo1`.
+
+## Правила при починке
+
+1. Сначала интернет 421 (`wlo1`), потом Archer/VPN
+2. Не удалять default routes вручную
+3. Archer только в **синий WAN** порт
+4. Автовосстановление: `vpn-gateway-routes.timer`, `apply-wlo1-dhcp.sh`

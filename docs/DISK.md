@@ -25,7 +25,7 @@ JSON для скриптов:
 | localQwen3b | 3B GGUF ~2 ГБ | ~5–7 ГБ | локальная модель без облака |
 | localQwen14b | 14B GGUF ~9 ГБ | **> 10 ГБ** | **не влезает** в бюджет вместе с venv и deps |
 
-**Вывод:** при лимите 10 ГБ не запускайте `install-qwen.bat` (14B). Используйте ключ DeepSeek в `backend/config/deepseek_free.key`.
+**Вывод:** при лимите 10 ГБ не запускайте `install-qwen.bat` (14B). Добавьте ключ DeepSeek в настройках Jarvis (Настройки → DeepSeek).
 
 ## Очистка
 
@@ -44,18 +44,18 @@ JSON для скриптов:
 .\scripts\guard-disk.ps1 -RequiredBytes 524288000
 ```
 
-`install-qwen-safe.bat` в Jarvis Free вызывает guard автоматически.
+Перед `install-qwen.bat` проверьте свободное место через `guard-disk.ps1`.
 
 ## Что входит в бюджет
 
 Настройка путей: `config/workspace.json`
 
 - папка репозитория
-- `Jarvis_free/backend/venv`
-- `Jarvis_free/frontend/node_modules`
-- `Jarvis_free/backend/data/models`
-- `%LOCALAPPDATA%\Jarvis_free\data`
-- `%LOCALAPPDATA%\Jarvis\browsers` (опционально, общие с Pro)
+- `jarvis/backend/venv`
+- `jarvis/frontend/node_modules`
+- `jarvis/backend/data/models`
+- `%LOCALAPPDATA%\Jarvis\data`
+- `%LOCALAPPDATA%\Jarvis\browsers`
 
 ## Изменить лимит
 
