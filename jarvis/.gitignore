@@ -18,3 +18,5 @@ backend/config/*.key
 !backend/config/*.key.example
 frontend/node_modules/
 frontend/dist/
+tmp-health.json
+tmp/*.json
